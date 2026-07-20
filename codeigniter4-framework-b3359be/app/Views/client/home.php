@@ -28,6 +28,9 @@ $solde = $clients['solde'] ?? 0;
     <form action="<?php echo base_url('/client/transfert'); ?>" method="get">
         <button type="submit">Transfert</button>
     </form>
+    <form action="<?php echo base_url('/client/historique'); ?>" method="get">
+        <button type="submit">Voir Historique</button>
+    </form>
     
 
 </body>

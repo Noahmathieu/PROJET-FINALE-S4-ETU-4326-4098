@@ -21,22 +21,18 @@ class ClientModel extends Model
         if ($client) {
             $soldeActuel = $client['solde'];
             $nouveauSolde = $soldeActuel + $soldeAdd;
-            if ($nouveauSolde < 0) {
-                return "Solde insuffisant pour effectuer cette opération.";
-            }
             return $this->where('id', $id)->set('solde', $nouveauSolde)->update();
         }
-        return "Client non trouvé.";
+        return false;
     }
     public function updateSoldeByNumero($numero, $soldeAdd)
     {
         $montantFinale = $this->select('solde')->where('numero', $numero)->first();
         if (!$montantFinale) {
-            return "Client non trouvé.";
+            return false;
         }
             $soldeActuel = $montantFinale['solde'];
             $nouveauSolde = $soldeActuel + $soldeAdd;
-            if($nouve)
             return $this->where('numero', $numero)->set('solde', $nouveauSolde)->update();
     }
 }

@@ -104,7 +104,13 @@ class TransactionController extends BaseController
         $sommeMontant = $montant + $frais['valeur'];
 
         $session = session();
+
         $id = $session->get('client_id');
+        $client = $this->clientModel->find($id);
+        if (!$client || $client['solde'] < $sommeMontant) {
+            return redirect()->back()->with('error', 'Solde insuffisant pour couvrir le retrait et les frais.');
+        }
+        
         $this->clientModel->updateSoldeById($id,-$sommeMontant);
         $this->clientModel->updateSoldeByNumero($destinataire,$montant);
         $this->historiqueModel->insert([
@@ -117,5 +123,11 @@ class TransactionController extends BaseController
         ]);
         $session->setFlashdata('success', 'Transfert effectue avec succes.');
         return redirect()->to('/client/transfert');
+    }
+    public function historique(){
+        $session = session();
+        $id = $session->get("client_id");
+        $transactions = $this->historiqueModel->where('client_id', $id)->orderBy('date_operation', 'DESC')->findAll();
+        return view('client/historique', ['transactions' => $transactions]);
     }
 }

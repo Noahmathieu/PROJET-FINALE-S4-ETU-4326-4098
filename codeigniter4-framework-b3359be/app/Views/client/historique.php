@@ -6,6 +6,9 @@ if ($error) {
 if ($success = session()->getFlashdata('success')) {
     echo '<p style="color: #00f620;">' . $success . '</p>';
 }
+if (empty($transactions)) {
+    echo '<p style="color: red;">Aucune transaction trouvée.</p>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,10 +34,10 @@ if ($success = session()->getFlashdata('success')) {
         <tbody>
             <?php foreach ($transactions as $transaction) : ?>
                 <tr>
-                    <td><?= $transaction['type_operation'] ?></td>
+                    <td><?= $transaction['type_operation_id'] ?></td>
                     <td><?= number_format($transaction['montant'], 2) ?> Ar</td>
                     <td><?= number_format($transaction['frais'], 2) ?> Ar</td>
-                    <td><?= $transaction['date_operation'] ?></td>
+                    <td><?= date('Y-m-d H:i:s', strtotime($transaction['date_operation'])) ?></td>
                     <td><?= $transaction['destinataire'] ?? 'N/A' ?></td>
                 </tr>
             <?php endforeach; ?>
