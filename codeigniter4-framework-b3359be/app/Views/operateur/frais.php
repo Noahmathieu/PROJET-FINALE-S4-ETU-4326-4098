@@ -80,8 +80,8 @@ $frais = $frais ?? [];
                     if (data.success) {
                         alert(data.message);
                         form.reset();
-                        toggleAddForm(); // Masque le formulaire après ajout
-                        location.reload(); // Recharge pour afficher la nouvelle ligne
+                        toggleAddForm(); 
+                        location.reload(); 
                     } else {
                         alert('Erreur lors de l\'ajout');
                     }
