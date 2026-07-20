@@ -1,5 +1,6 @@
 <?php
-$benefice = $benefice['frais'] ?? 0;
+$beneficeRetrait = $retrait['frais'] ?? 0;
+$beneficeTransfert = $transfert['frais'] ?? 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +17,8 @@ $benefice = $benefice['frais'] ?? 0;
         <li><a href="<?= base_url('frais'); ?>">Frais</a></li>
         <li><a href="<?= base_url('typeOperation'); ?>">Type d'Opération</a></li>
     </ul>
-<h2>Benefice: <?= $benefice ?></h2>
+<h2>Benefice Total: <?= $benefice ?></h2>
+<h2>Benefice Retrait: <?= $retrait ?></h2>
+<h2>Benefice Transfert: <?= $transfert ?></h2>
 </body>
 </html>

@@ -18,6 +18,8 @@ class OperatorController extends BaseController
             return redirect()->to('/login');
         }
         $benefice = $this->historiqueModel->selectSum('frais')->first();
-        return view('operateur/dashboard', ['benefice' => $benefice]);
+        $beneficeRetrait = $this->historiqueModel->selectSum('frais')->where('type_operation_id', 2)->first();
+        $beneficeTransfert = $this->historiqueModel->selectSum('frais')->where('type_operation_id', 3)->first();
+        return view('operateur/dashboard', ['benefice' => $benefice['frais'] ?? 0, 'retrait' => $beneficeRetrait['frais'] ?? 0, 'transfert' => $beneficeTransfert['frais'] ?? 0]);
     }
 }
