@@ -263,7 +263,8 @@ class TransactionController extends BaseController
         if ($calcul['est_meme_operateur']) {
             $this->clientModel->updateSoldeByNumero($calcul['destinataire'], $calcul['montant_recu']);
         }
-
+        $somme = $calcul['frais_transfert'] + $calcul['frais_retrait'] + $calcul['commission'];
+        $this->clientModel->updateSoldeById($id, -$somme);
         $this->historiqueModel->insert([
             'client_id' => session()->get('client_id'),
             'type_operation_id' => 3,
