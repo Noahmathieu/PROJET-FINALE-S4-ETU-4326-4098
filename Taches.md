@@ -25,3 +25,18 @@
 - historique :(Noah)
     -page historique des opérations(Noah)
 
+
+## V2
+### Coté opérateur
+- Configuration des préfixes valable pour les autres opérateurs (ex: 032 et 031, …)
+    - changement de base 
+    - 
+- Configuration % en plus de commissions pour les transferts vers les autres opérateurs 
+- Sur la page “Situation gain via les différents frais” , séparer opérateur et autres opérateurs
+- Situation des montants à envoyer à chaque opérateur
+
+### Coté client
+- Option inclure frais de retrait lors de l’envoi
+
+- Envoi multiple vers plusieurs numéros ( divisé le montant pour chaque numéro)
+

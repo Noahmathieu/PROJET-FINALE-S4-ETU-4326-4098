@@ -19,9 +19,9 @@ $routes->post('/typeOperation/modifier/(:num)', 'TypeOperationController::modifi
 $routes->get('/typeOperation/supprimer/(:num)', 'TypeOperationController::supprimer/$1');
 $routes->get('/situationClient', 'ClientController::list');
 $routes->get('/historique/(:num)', 'ClientController::historique/$1');
-
-
-
+$routes->get('/autresOperateurs', 'AutresOperateursController::form');
+$routes->post('/autresOperateurs/ajouter', 'AutresOperateursController::ajouter');
+$routes->get('/autresOperateurs/supprimer/(:num)', 'AutresOperateursController::supprimer/$1');
 
 
 //Noah

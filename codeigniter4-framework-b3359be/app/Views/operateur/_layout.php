@@ -10,6 +10,7 @@ $logoPath = base_url(rawurlencode('Design sans titre.png'));
 $menuItems = [
     ['key' => 'dashboard', 'label' => 'Dashboard', 'href' => base_url('operator/home')],
     ['key' => 'configuration', 'label' => 'Configuration', 'href' => base_url('config')],
+    ['key' => 'autresOperateurs', 'label' => 'Autres operateurs', 'href' => base_url('autresOperateurs')],
     ['key' => 'frais', 'label' => 'Frais', 'href' => base_url('frais')],
     ['key' => 'typeOperation', 'label' => 'Types d\'operation', 'href' => base_url('typeOperation')],
     ['key' => 'situationCompte', 'label' => 'Comptes clients', 'href' => base_url('situationClient')],
