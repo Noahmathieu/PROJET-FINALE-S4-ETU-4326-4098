@@ -17,4 +17,12 @@ $routes->get('/config/supprimer/(:num)', 'ConfigurationController::supprimer/$1'
 
 
 
+
+
+
+
+
 //Noah
+$routes->get('/', 'AuthController::login');
+$routes->post('/checkLogin', 'AuthController::checkLogin');
+$routes->get('/logout', 'AuthController::logout');
