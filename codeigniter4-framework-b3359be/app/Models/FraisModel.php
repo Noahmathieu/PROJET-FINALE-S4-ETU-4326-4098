@@ -11,6 +11,7 @@ class FraisModel extends Model
     protected $useTimestamps = false;
 
     protected $allowedFields = [
+        'id_type_operation',
         'montant_Min',
         'montant_Max',
         'valeur'

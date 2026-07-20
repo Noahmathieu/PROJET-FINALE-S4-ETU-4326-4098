@@ -1,5 +1,6 @@
 <?php
 $frais = $frais ?? [];
+$typeOperations = $typeOperations ?? [];
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -14,6 +15,12 @@ $frais = $frais ?? [];
     <div id="add-form-container" class="add-form-container" style="display: none; margin-bottom: 15px;">
         <h3>Ajouter un nouveau frais</h3>
         <form id="addFraisForm" onsubmit="addFrais(event)">
+            <select name="id_type_operation" required>
+                <option value="">Sélectionner un type d'opération</option>
+                <?php foreach ($typeOperations as $typeOperation): ?>
+                    <option value="<?= $typeOperation['id'] ?>"><?= htmlspecialchars($typeOperation['nomType']) ?></option>
+                <?php endforeach; ?>
+            </select>
             <input type="number" step="0.01" name="montant_Min" placeholder="Montant Min" required>
             <input type="number" step="0.01" name="montant_Max" placeholder="Montant Max" required>
             <input type="number" step="0.01" name="valeur" placeholder="Valeur" required>
@@ -27,6 +34,7 @@ $frais = $frais ?? [];
     <table border="1">
         <thead>
             <tr>
+                <th>Type d'Opération</th>
                 <th>Montant Min</th>
                 <th>Montant Max</th>
                 <th>Valeur</th>
@@ -36,6 +44,15 @@ $frais = $frais ?? [];
         <tbody id="fraisTableBody">
             <?php foreach ($frais as $item): ?>
                 <tr id="ligne/<?= $item['id'] ?>">
+                    <td>
+                        <select name="id_type_operation">
+                            <?php foreach ($typeOperations as $typeOperation): ?>
+                                <option value="<?= $typeOperation['id'] ?>" <?= $typeOperation['id'] == $item['id_type_operation'] ? 'selected' : '' ?>>
+                                    <?= htmlspecialchars($typeOperation['nomType']) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </td>
                     <td>
                         <input type="number" step="0.01" name="montant_Min" value="<?= htmlspecialchars($item['montant_Min']) ?>">
                     </td>
@@ -94,6 +111,7 @@ $frais = $frais ?? [];
 
             const formData = new FormData();
             formData.append('id', id);
+            formData.append('id_type_operation', row.querySelector('select[name="id_type_operation"]').value);
             formData.append('montant_Min', row.querySelector('input[name="montant_Min"]').value);
             formData.append('montant_Max', row.querySelector('input[name="montant_Max"]').value);
             formData.append('valeur', row.querySelector('input[name="valeur"]').value);
