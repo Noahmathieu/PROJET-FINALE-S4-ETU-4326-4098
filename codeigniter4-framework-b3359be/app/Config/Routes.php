@@ -17,7 +17,8 @@ $routes->get('/typeOperation', 'TypeOperationController::list');
 $routes->post('/typeOperation/ajouter', 'TypeOperationController::ajouter');
 $routes->post('/typeOperation/modifier/(:num)', 'TypeOperationController::modifier/$1');
 $routes->get('/typeOperation/supprimer/(:num)', 'TypeOperationController::supprimer/$1');
-
+$routes->get('/situationClient', 'ClientController::list');
+$routes->get('/historique/(:num)', 'ClientController::historique/$1');
 
 
 
