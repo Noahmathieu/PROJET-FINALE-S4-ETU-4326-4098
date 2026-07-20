@@ -1,0 +1,360 @@
+CRITICAL - 2026-07-20 06:43:12 --> Error: Call to undefined function set_value()
+[Method: GET, Route: config]
+in APPPATH/Views/operateur/configuration.php on line 33.
+ 1 SYSTEMPATH/View/View.php(240): include()
+ 2 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 4 APPPATH/Controllers/ConfigurationController.php(21): view()
+ 5 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\ConfigurationController->form()
+ 6 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 07:03:16 --> ArgumentCountError: Too few arguments to function App\Controllers\ConfigurationController::supprimer(), 0 passed in /home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/system/CodeIgniter.php on line 951 and exactly 1 expected
+[Method: GET, Route: config/supprimer/1]
+in APPPATH/Controllers/ConfigurationController.php on line 29.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\ConfigurationController->supprimer()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 07:03:21 --> ArgumentCountError: Too few arguments to function App\Controllers\ConfigurationController::supprimer(), 0 passed in /home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/system/CodeIgniter.php on line 951 and exactly 1 expected
+[Method: GET, Route: config/supprimer/1]
+in APPPATH/Controllers/ConfigurationController.php on line 29.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\ConfigurationController->supprimer()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 08:10:43 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "operateur/typeOperation.php"
+[Method: GET, Route: typeOperation]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/TypeOperationController.php(20): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\TypeOperationController->list()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 08:10:55 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "operateur/typeOperation.php"
+[Method: GET, Route: typeOperation]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/TypeOperationController.php(20): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\TypeOperationController->list()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+10 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:17:44 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:17:46 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:17:46 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:17:46 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:17:57 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:17:57 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:17:57 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:17:57 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:17:57 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:17:58 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:17:58 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:17:59 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:17:59 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:18:08 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:20:10 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:20:12 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:20:12 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:20:12 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:21:16 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:21:16 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:21:16 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:21:16 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:21:16 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:22:38 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:22:39 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:22:39 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:22:39 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:22:40 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:22:40 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 09:22:40 --> Error: Typed property App\Controllers\FraisController::$typeOperationModel must not be accessed before initialization
+[Method: GET, Route: frais]
+in APPPATH/Controllers/FraisController.php on line 23.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\FraisController->list()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
