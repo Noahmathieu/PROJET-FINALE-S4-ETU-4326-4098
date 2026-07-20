@@ -31,7 +31,7 @@ CREATE TABLE historique(
     montant DECIMAL(10,2) NOT NULL,
     date_operation DATETIME NOT NULL,
     destinataire VARCHAR(20),
-    frais DECIMAL(10,2) NOT NULL,
+    frais DECIMAL(10,2),
     commission DECIMAL(10,2),
     FOREIGN KEY (client_id) REFERENCES client(id) ON DELETE CASCADE,
     FOREIGN KEY (type_operation_id) REFERENCES type_operation(id) ON DELETE CASCADE
@@ -48,7 +48,11 @@ INSERT INTO frais (montant_Min, montant_Max, valeur, id_type_operation) VALUES (
 (100, 1000, 50, 2), (1001, 5000, 50, 2), (5001, 10000, 100, 2), (10001, 25000, 200, 2), (25001, 50000, 400, 2), (50001, 100000, 700, 2), (100001, 250000, 1100, 2), (250001, 500000, 1100, 2), (500001, 1000000, 2200, 2),(1000001, 2000000, 3000, 2),
 (100, 1000, 50, 3), (1001, 5000, 50, 3), (5001, 10000, 100, 3), (10001, 25000, 300, 3), (25001, 50000, 500, 3), (50001, 100000, 800, 3), (100001, 250000, 1200, 3), (250001, 500000, 1200, 3), (500001, 1000000, 2300, 3),(1000001, 2000000, 3500, 3);
 
+DROP TABLE IF EXISTS autres_operateurs;
 CREATE TABLE autres_operateurs(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    prefixe VARCHAR(10) NOT NULL
+    prefixe VARCHAR(10) NOT NULL,
+    nomOperateur VARCHAR(50) NOT NULL
 );
+INSERT INTO autres_operateurs (prefixe, nomOperateur) VALUES ('038', 'Telma'), ('034', 'Telma');
+INSERT INTO autres_operateurs (prefixe, nomOperateur) VALUES ('033', 'Orange'), ('032', 'Orange');

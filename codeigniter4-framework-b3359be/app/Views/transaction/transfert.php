@@ -31,6 +31,11 @@ ob_start();
             <input type="number" name="montant" id="montant" min="1" step="0.01" required>
         </div>
 
+        <label class="form-check">
+            <input type="checkbox" name="inclure_frais_retrait" value="1">
+            <span>Inclure les frais de retrait pour le destinataire</span>
+        </label>
+
         <button class="primary-button" type="submit">Transferer</button>
     </form>
 </section>

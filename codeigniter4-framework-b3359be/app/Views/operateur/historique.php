@@ -39,7 +39,7 @@ ob_start();
 
                 <?php foreach ($historiques as $historique): ?>
                     <tr data-search-item>
-                        <td><?= esc($historique['typeOperationNom'] ?? $historique['type_operation_id']) ?></td>
+                        <td><?= esc($historique['nomType'] ?? $historique['type_operation_id']) ?></td>
                         <td><?= number_format((float) $historique['montant'], 0, ',', ' ') ?> Ar</td>
                         <td><?= esc($historique['date_operation']) ?></td>
                         <td><?= esc($historique['destinataire'] ?? '-') ?></td>

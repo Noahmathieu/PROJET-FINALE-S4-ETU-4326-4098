@@ -21,16 +21,27 @@ ob_start();
 <?php
 $content = ob_get_clean();
 
+$summaryCards = [
+    ['label' => 'Gains Autre Operateur', 'value' => $gainOperateur ?? 0, 'note' => 'Gains autres operateurs', 'tone' => 'tone-blue'],
+    ['label' => 'Benefice Operateur', 'value' => $benefice ?? 0, 'note' => 'Gains operateurs', 'tone' => 'tone-blue'],
+    ['label' => 'Retraits', 'value' => $retrait ?? 0, 'note' => 'Frais lies aux retraits', 'tone' => 'tone-indigo'],
+    ['label' => 'Transferts', 'value' => $transfert ?? 0, 'note' => 'Frais lies aux transferts', 'tone' => 'tone-navy'],
+];
+
+foreach (($commissionParOperateur ?? []) as $commission) {
+    $summaryCards[] = [
+        'label' => $commission['nomOperateur'],
+        'value' => $commission['total_commission'] ?? 0,
+        'note'  => 'Frais depot autre operateur',
+        'tone'  => 'tone-green',
+    ];
+}
+
 echo view('operateur/_layout', [
     'title' => 'Dashboard operateur',
     'pageHeading' => 'Dashboard operateur',
     'pageDescription' => "Vue d'ensemble des gains et acces rapides aux modules de configuration.",
     'activeMenu' => 'dashboard',
-    'summaryCards' => [
-        ['label' => 'Gains Autre Operateur', 'value' => $beneficeOperateur['commission'] ?? 0, 'note' => 'Gains autres operateurs', 'tone' => 'tone-blue'],
-        ['label' => 'Benefice Operateur', 'value' => $benefice ?? 0, 'note' => 'Gains operateurs', 'tone' => 'tone-blue'],
-        ['label' => 'Retraits', 'value' => $retrait ?? 0, 'note' => 'Frais lies aux retraits', 'tone' => 'tone-indigo'],
-        ['label' => 'Transferts', 'value' => $transfert ?? 0, 'note' => 'Frais lies aux transferts', 'tone' => 'tone-navy'],
-    ],
+    'summaryCards' => $summaryCards,
     'content' => $content,
 ]);

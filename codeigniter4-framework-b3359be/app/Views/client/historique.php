@@ -36,6 +36,7 @@ ob_start();
                         <th>Frais</th>
                         <th>Date</th>
                         <th>Destinataire</th>
+                        <th>Commission</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,6 +47,7 @@ ob_start();
                             <td><?= number_format((float) $transaction['frais'], 0, ',', ' ') ?> Ar</td>
                             <td><?= esc(date('Y-m-d H:i:s', strtotime($transaction['date_operation']))) ?></td>
                             <td><?= esc($transaction['destinataire'] ?? 'N/A') ?></td>
+                            <td><?= number_format((float) $transaction['commission'], 0, ',', ' ') ?> Ar</td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

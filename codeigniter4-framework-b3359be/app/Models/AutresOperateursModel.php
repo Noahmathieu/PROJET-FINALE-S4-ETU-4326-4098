@@ -12,6 +12,11 @@ class AutresOperateursModel extends Model
 
     protected $allowedFields = [
         'prefixe',
+        'nomOperateur'
     ];
-
+    public function checkOtherOperator($destinataire)
+    {
+        $prefixe = substr($destinataire, 0, 3);
+        return $this->where('prefixe', $prefixe)->first();
+    }
 }
