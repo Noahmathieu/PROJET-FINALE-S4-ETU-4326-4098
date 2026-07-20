@@ -20,6 +20,7 @@ class OperatorController extends BaseController
         $benefice = $this->historiqueModel->selectSum('frais')->first();
         $beneficeRetrait = $this->historiqueModel->selectSum('frais')->where('type_operation_id', 2)->first();
         $beneficeTransfert = $this->historiqueModel->selectSum('frais')->where('type_operation_id', 3)->first();
-        return view('operateur/dashboard', ['benefice' => $benefice['frais'] ?? 0, 'retrait' => $beneficeRetrait['frais'] ?? 0, 'transfert' => $beneficeTransfert['frais'] ?? 0]);
+        $beneficeOperateur = $this->historiqueModel->selectSum('commission')->first();
+        return view('operateur/dashboard', ['benefice' => $benefice['frais'] ?? 0, 'retrait' => $beneficeRetrait['frais'] ?? 0, 'transfert' => $beneficeTransfert['frais'] ?? 0, 'gainOperateur' => $beneficeOperateur['commission'] ?? 0]);
     }
 }

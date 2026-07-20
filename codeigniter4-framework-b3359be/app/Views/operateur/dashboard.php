@@ -27,7 +27,8 @@ echo view('operateur/_layout', [
     'pageDescription' => "Vue d'ensemble des gains et acces rapides aux modules de configuration.",
     'activeMenu' => 'dashboard',
     'summaryCards' => [
-        ['label' => 'Benefice total', 'value' => $benefice ?? 0, 'note' => 'Somme des frais collectes', 'tone' => 'tone-blue'],
+        ['label' => 'Gains Autre Operateur', 'value' => $beneficeOperateur['commission'] ?? 0, 'note' => 'Gains autres operateurs', 'tone' => 'tone-blue'],
+        ['label' => 'Benefice Operateur', 'value' => $benefice ?? 0, 'note' => 'Gains operateurs', 'tone' => 'tone-blue'],
         ['label' => 'Retraits', 'value' => $retrait ?? 0, 'note' => 'Frais lies aux retraits', 'tone' => 'tone-indigo'],
         ['label' => 'Transferts', 'value' => $transfert ?? 0, 'note' => 'Frais lies aux transferts', 'tone' => 'tone-navy'],
     ],

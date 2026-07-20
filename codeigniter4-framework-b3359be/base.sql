@@ -32,10 +32,16 @@ CREATE TABLE historique(
     date_operation DATETIME NOT NULL,
     destinataire VARCHAR(20),
     frais DECIMAL(10,2) NOT NULL,
+    commission DECIMAL(10,2),
     FOREIGN KEY (client_id) REFERENCES client(id) ON DELETE CASCADE,
     FOREIGN KEY (type_operation_id) REFERENCES type_operation(id) ON DELETE CASCADE
 );
 
+CREATE TABLE commission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    taux DECIMAL(10,2) NOT NULL
+);
+INSERT INTO commission (taux) VALUES (0.05);
 INSERT INTO configuration (prefixe) VALUES ('022'),('030');
 INSERT INTO type_operation (nomType) VALUES ('Transfert'),('Retrait'),('Depot');
 INSERT INTO frais (montant_Min, montant_Max, valeur, id_type_operation) VALUES (100, 1000, 50, 1), (1001, 5000, 50, 1), (5001, 10000, 100, 1), (10001, 25000, 200, 1), (25001, 50000, 400, 1), (50001, 100000, 800, 1), (100001, 250000, 1500, 1), (250001, 500000, 1500, 1), (500001, 1000000, 2500, 1),(1000001, 2000000, 3000, 1),

@@ -6,6 +6,7 @@ use App\Models\ClientModel;
 use App\Models\ConfigurationModel;
 use App\Models\HistoriqueModel;
 use App\Models\FraisModel;
+use App\Models\CommissionModel;
 
 class TransactionController extends BaseController
 {
@@ -20,6 +21,7 @@ class TransactionController extends BaseController
         $this->configurationModel = new ConfigurationModel();
         $this->historiqueModel = new HistoriqueModel();
         $this->fraisModel = new FraisModel();
+        $this->commissionModel = new CommissionModel();
     }
     private function getCurrentClient(): ?array
     {
@@ -105,7 +107,10 @@ class TransactionController extends BaseController
 
     $session = session();
     $id = $session->get("client_id");
-        $destinataire = $this->request->getPost("destinataire");
+    $destinataire = $this->request->getPost("destinataire");
+
+
+
        $prefixesFromDb = $this->configurationModel->findAll();
             $allowedPrefixes = [];
 
@@ -128,6 +133,39 @@ class TransactionController extends BaseController
             $session->setFlashdata('error', 'Le format du numéro est invalide');
             return redirect()->back();
         }
+
+
+if($this->clientModel->checkMyOperator($destinataire) === null){
+        //montant
+        $montant = $this->request->getPost("montant");
+
+        //frais
+        $frais = $this->fraisModel->getFrais($montant,2);
+        
+
+        //commission
+        $commission = $this->commissionModel->getCommission();
+        $commission['taux'] = $commission['taux'] ?? 0;
+        $commissionValue = $montant * $commission['taux'];
+        
+        $sommeMontant = $montant + $frais['valeur'];
+
+        $session = session();
+
+        $this->historiqueModel->insert([
+            'client_id' => session()->get('client_id'),
+            'type_operation_id' => 3,
+            'montant' => $montant,
+            'frais' => $frais['valeur'],
+            'commission' => $commissionValue,
+            'date_operation' => date('Y-m-d H:i:s'),
+            'destinataire' => $destinataire
+        ]);
+
+        $session->setFlashdata('success', 'Transfert effectue avec succes.');
+        return redirect()->to('/client/transfert');
+
+        } else {
 
         $montant = $this->request->getPost("montant");
 
@@ -154,6 +192,8 @@ class TransactionController extends BaseController
         ]);
         $session->setFlashdata('success', 'Transfert effectue avec succes.');
         return redirect()->to('/client/transfert');
+
+        }
     }
     public function historique(){
         $session = session();
