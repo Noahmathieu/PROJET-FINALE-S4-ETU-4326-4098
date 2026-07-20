@@ -6,8 +6,12 @@ use App\Models\ClientModel;
 
 class ClientController extends BaseController
 {
+    private ClientModel $clientModel;
+    private \App\Models\HistoriqueModel $historiqueModel;
+    
     public function __construct(){
         $this->clientModel = new ClientModel();
+        $this->historiqueModel = new \App\Models\HistoriqueModel();
     }
     public function index(){
         $session = session();
@@ -18,5 +22,14 @@ class ClientController extends BaseController
         }
         $clients = $this->clientModel->getClientById($clientId);
         return view('client/home', ['clients' => $clients]);
+    }
+     public function list(): string
+    {
+        $client = $this->clientModel->findAll();
+        return view('operateur/situationCompte', ['clients' => $client ]);
+    }
+    public function historique($id){
+        $historiques = $this->historiqueModel->findbyIdClient($id);
+        return view('operateur/historique', ['historiques' => $historiques]);
     }
 }

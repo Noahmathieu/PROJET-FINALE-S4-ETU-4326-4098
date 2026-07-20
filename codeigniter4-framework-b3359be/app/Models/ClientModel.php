@@ -5,7 +5,7 @@ class ClientModel extends Model
 {
     protected $table = 'client';
     protected $primaryKey = 'id';
-
+    protected $useTimestamps = false;
     protected $allowedFields = ['numero', 'solde'];
 
     public function getClientByNumero($numero)
@@ -15,4 +15,5 @@ class ClientModel extends Model
     public function getClientById($id){
         return $this->where('id', $id)->first();
     }
+    
 }
