@@ -19,14 +19,17 @@ $solde = $clients['solde'] ?? 0;
 <body>
     <h1>Bienvenue a Vous</h1>
     <h2>Votre Solde c'est <?= number_format($solde, 2) ?> Ar</h2>
-    <form action="/client/depot" method="get">
+    <form action="<?php echo base_url('/client/depot'); ?>" method="get">
         <button type="submit">Depot</button>
     </form>
-    <form action="/client/retrait" method="get">
+    <form action="<?php echo base_url('/client/retrait'); ?>" method="get">
         <button type="submit">Retrait</button>
     </form>
-    <form action="/client/transfert" method="get">
+    <form action="<?php echo base_url('/client/transfert'); ?>" method="get">
         <button type="submit">Transfert</button>
+    </form>
+    <form action="<?php echo base_url('/client/historique'); ?>" method="get">
+        <button type="submit">Voir Historique</button>
     </form>
     
 
