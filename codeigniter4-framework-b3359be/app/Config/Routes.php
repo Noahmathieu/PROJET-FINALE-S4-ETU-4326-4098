@@ -13,11 +13,10 @@ $routes->get('/frais', 'FraisController::list');
 $routes->post('/frais/ajouter', 'FraisController::ajouter');
 $routes->post('/frais/modifier/(:num)', 'FraisController::modifier/$1');
 $routes->get('/frais/supprimer/(:num)', 'FraisController::supprimer/$1');
-
-
-
-
-
+$routes->get('/typeOperation', 'TypeOperationController::list');
+$routes->post('/typeOperation/ajouter', 'TypeOperationController::ajouter');
+$routes->post('/typeOperation/modifier/(:num)', 'TypeOperationController::modifier/$1');
+$routes->get('/typeOperation/supprimer/(:num)', 'TypeOperationController::supprimer/$1');
 
 
 
