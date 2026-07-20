@@ -127,7 +127,7 @@ class TransactionController extends BaseController
     public function historique(){
         $session = session();
         $id = $session->get("client_id");
-        $transactions = $this->historiqueModel->where('client_id', $id)->orderBy('date_operation', 'DESC')->findAll();
+        $transactions = $this->historiqueModel->getHistoriqueWithType($id);
         return view('client/historique', ['transactions' => $transactions]);
     }
 }

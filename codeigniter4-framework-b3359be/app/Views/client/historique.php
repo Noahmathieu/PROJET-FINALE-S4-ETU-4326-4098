@@ -34,7 +34,7 @@ if (empty($transactions)) {
         <tbody>
             <?php foreach ($transactions as $transaction) : ?>
                 <tr>
-                    <td><?= $transaction['type_operation_id'] ?></td>
+                    <td><?= $transaction['nomType'] ?></td>
                     <td><?= number_format($transaction['montant'], 2) ?> Ar</td>
                     <td><?= number_format($transaction['frais'], 2) ?> Ar</td>
                     <td><?= date('Y-m-d H:i:s', strtotime($transaction['date_operation'])) ?></td>
@@ -43,6 +43,7 @@ if (empty($transactions)) {
             <?php endforeach; ?>
         </tbody>
     </table>
+    <h6><a href="/logout">Se deconnecter</a></h6>
 
 </body>
 </html>

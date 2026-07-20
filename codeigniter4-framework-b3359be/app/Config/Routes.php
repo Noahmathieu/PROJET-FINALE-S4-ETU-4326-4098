@@ -26,6 +26,7 @@ $routes->get('/frais/supprimer/(:num)', 'FraisController::supprimer/$1');
 
 //Noah
 $routes->get('/', 'AuthController::login');
+$routes->get('/logout', 'AuthController::logout');
 $routes->post('/checkLogin', 'AuthController::checkLogin');
 $routes->get('/logout', 'AuthController::logout');
 $routes->get('/client/home', 'ClientController::index');
