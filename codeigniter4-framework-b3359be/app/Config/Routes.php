@@ -10,9 +10,10 @@ $routes->get('/', 'Home::index');
 $routes->get('/config', 'ConfigurationController::form');
 $routes->post('/config/ajouter', 'ConfigurationController::ajouter');
 $routes->get('/config/supprimer/(:num)', 'ConfigurationController::supprimer/$1');
-
-
-
+$routes->get('/frais', 'FraisController::list');
+$routes->post('/frais/ajouter', 'FraisController::ajouter');
+$routes->post('/frais/modifier/(:num)', 'FraisController::modifier/$1');
+$routes->get('/frais/supprimer/(:num)', 'FraisController::supprimer/$1');
 
 
 
