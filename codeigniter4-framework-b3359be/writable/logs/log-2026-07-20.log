@@ -1,0 +1,34 @@
+CRITICAL - 2026-07-20 06:43:12 --> Error: Call to undefined function set_value()
+[Method: GET, Route: config]
+in APPPATH/Views/operateur/configuration.php on line 33.
+ 1 SYSTEMPATH/View/View.php(240): include()
+ 2 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 4 APPPATH/Controllers/ConfigurationController.php(21): view()
+ 5 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\ConfigurationController->form()
+ 6 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+11 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 07:03:16 --> ArgumentCountError: Too few arguments to function App\Controllers\ConfigurationController::supprimer(), 0 passed in /home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/system/CodeIgniter.php on line 951 and exactly 1 expected
+[Method: GET, Route: config/supprimer/1]
+in APPPATH/Controllers/ConfigurationController.php on line 29.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\ConfigurationController->supprimer()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 07:03:21 --> ArgumentCountError: Too few arguments to function App\Controllers\ConfigurationController::supprimer(), 0 passed in /home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/system/CodeIgniter.php on line 951 and exactly 1 expected
+[Method: GET, Route: config/supprimer/1]
+in APPPATH/Controllers/ConfigurationController.php on line 29.
+ 1 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\ConfigurationController->supprimer()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
