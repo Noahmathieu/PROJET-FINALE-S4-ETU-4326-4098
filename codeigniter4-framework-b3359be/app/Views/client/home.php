@@ -3,6 +3,10 @@ $error = session()->getFlashdata('error');
 if ($error) {
     echo '<p style="color: red;">' . $error . '</p>';
 }
+if ($success = session()->getFlashdata('success')) {
+    echo '<p style="color: #00f620;">' . $error . '</p>';
+}
+$solde = $clients['solde'] ?? 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,9 +17,18 @@ if ($error) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Bienvenue a Vous</h1>
-<h2>Votre Solde c'est<?=  ?></h2>
-
+    <h1>Bienvenue a Vous</h1>
+    <h2>Votre Solde c'est <?= number_format($solde, 2) ?> Ar</h2>
+    <form action="/client/depot" method="get">
+        <button type="submit">Depot</button>
+    </form>
+    <form action="/client/retrait" method="get">
+        <button type="submit">Retrait</button>
+    </form>
+    <form action="/client/transfert" method="get">
+        <button type="submit">Transfert</button>
+    </form>
+    
 
 </body>
 </html>
