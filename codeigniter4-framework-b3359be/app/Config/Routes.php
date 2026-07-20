@@ -37,3 +37,4 @@ $routes->post('/transfert/valide', 'TransactionController::valideTransfert');
 $routes->post('/transfert/depot/valide', 'TransactionController::valideDepot');
 $routes->post('/transfert/retrait/valide', 'TransactionController::valideRetrait');
 $routes->get('/client/historique', 'TransactionController::historique');
+$routes->get('/operator/home', 'OperatorController::index');
