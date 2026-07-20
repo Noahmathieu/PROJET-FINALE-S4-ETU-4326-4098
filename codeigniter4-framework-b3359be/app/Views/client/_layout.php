@@ -13,6 +13,7 @@ $menuItems = [
     ['key' => 'depot', 'label' => 'Depot', 'href' => base_url('client/depot')],
     ['key' => 'retrait', 'label' => 'Retrait', 'href' => base_url('client/retrait')],
     ['key' => 'transfert', 'label' => 'Transfert', 'href' => base_url('client/transfert')],
+    ['key' => 'transfertMultiple', 'label' => 'Transfert multiple', 'href' => base_url('client/transfertMultiple')],
     ['key' => 'historique', 'label' => 'Historique', 'href' => base_url('client/historique')],
 ];
 ?>
