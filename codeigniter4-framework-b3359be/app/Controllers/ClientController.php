@@ -17,5 +17,6 @@ class ClientController extends BaseController
             return redirect()->to('/login');
         }
         $clients = $this->clientModel->getClientById($clientId);
+        return view('client/home', ['clients' => $clients]);
     }
 }

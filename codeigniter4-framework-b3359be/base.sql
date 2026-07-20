@@ -18,15 +18,16 @@ CREATE TABLE client(
     numero VARCHAR(20) NOT NULL,
     solde DECIMAL(10,2) NOT NULL
 );
-CREATE TABLE operations(
+DROP TABLE IF EXISTS historique;
+CREATE TABLE historique(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    id_Client INTEGER NOT NULL,
-    id_type_operation INTEGER NOT NULL,
-    frais DECIMAL(10,2) NOT NULL,
+    client_id INTEGER NOT NULL,
+    type_operation_id INTEGER NOT NULL,
     montant DECIMAL(10,2) NOT NULL,
-    numero_destinataire VARCHAR(20) NOT NULL,
-    FOREIGN KEY (id_Client) REFERENCES client(id),
-    FOREIGN KEY (id_type_operation) REFERENCES type_operation(id)
+    date_operation DATETIME NOT NULL,
+    destinataire VARCHAR(20),
+    FOREIGN KEY (client_id) REFERENCES client(id),
+    FOREIGN KEY (type_operation_id) REFERENCES type_operation(id)
 );
 
 INSERT INTO configuration (prefixe) VALUES ('022'),('030');
