@@ -541,3 +541,66 @@ in SYSTEMPATH/Database/SQLite3/Connection.php on line 164.
 12 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
 13 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
 14 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 12:38:55 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\ClientModel::checkMyOperator
+[Method: POST, Route: transfert/valide]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/TransactionController.php(149): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\TransactionController->valideTransfert()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/mnt/storage/snapd/S4/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 13:26:57 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\HistoriqueModel::findbyIdClient
+[Method: GET, Route: historique/2]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/ClientController.php(31): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\ClientController->historique()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/mnt/storage/snapd/S4/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 13:29:06 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\HistoriqueModel::findbyIdClient
+[Method: GET, Route: historique/1]
+in SYSTEMPATH/Model.php on line 761.
+ 1 APPPATH/Controllers/ClientController.php(31): CodeIgniter\Model->__call()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\ClientController->historique()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/mnt/storage/snapd/S4/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 13:38:17 --> ErrorException: Undefined variable $summaryCards
+[Method: GET, Route: operator/home]
+in APPPATH/Views/operateur/dashboard.php on line 19.
+ 1 APPPATH/Views/operateur/dashboard.php(19): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/mnt/storage/snapd/S4/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/app/Views/operateur/dashboard.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/OperatorController.php(26): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\OperatorController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/mnt/storage/snapd/S4/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')
+CRITICAL - 2026-07-20 13:38:18 --> ErrorException: Undefined variable $summaryCards
+[Method: GET, Route: operator/home]
+in APPPATH/Views/operateur/dashboard.php on line 19.
+ 1 APPPATH/Views/operateur/dashboard.php(19): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/View/View.php(240): include('/mnt/storage/snapd/S4/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/app/Views/operateur/dashboard.php')
+ 3 SYSTEMPATH/View/View.php(243): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 5 APPPATH/Controllers/OperatorController.php(26): view()
+ 6 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\OperatorController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+12 SYSTEMPATH/rewrite.php(44): require_once('/mnt/storage/snapd/S4/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')

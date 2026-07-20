@@ -424,6 +424,10 @@ img {
     background: linear-gradient(135deg, #06172d, #123d7b);
 }
 
+.tone-green {
+    background: linear-gradient(135deg, #7272ed, #5a68e8);
+}
+
 .stat-card span,
 .stat-card small {
     position: relative;
@@ -528,6 +532,21 @@ img {
     font-size: 0.9rem;
     font-weight: 700;
     color: var(--operator-text);
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--operator-muted);
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.form-check input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--operator-blue);
 }
 
 .form-group input,
