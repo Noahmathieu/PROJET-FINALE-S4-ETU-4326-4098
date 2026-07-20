@@ -8,7 +8,7 @@ class HistoriqueModel extends Model
     protected $primaryKey = 'id';
 
     protected $useTimestamps = false;
-    protected $allowedFields = ['client_id', 'type_operation_id', 'montant', 'date_operation','destinataire'];
+    protected $allowedFields = ['client_id', 'type_operation_id', 'montant', 'frais', 'date_operation','destinataire'];
 
 
     public function findbyIdClient($clientId)

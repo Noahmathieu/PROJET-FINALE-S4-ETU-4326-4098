@@ -31,7 +31,7 @@ CREATE TABLE historique(
     montant DECIMAL(10,2) NOT NULL,
     date_operation DATETIME NOT NULL,
     destinataire VARCHAR(20),
-    frais DECIMAL(10,2) NOT NULL,
+    frais DECIMAL(10,2),
     FOREIGN KEY (client_id) REFERENCES client(id) ON DELETE CASCADE,
     FOREIGN KEY (type_operation_id) REFERENCES type_operation(id) ON DELETE CASCADE
 );

@@ -22,7 +22,8 @@ $routes->get('/historique/(:num)', 'ClientController::historique/$1');
 $routes->get('/autresOperateurs', 'AutresOperateursController::form');
 $routes->post('/autresOperateurs/ajouter', 'AutresOperateursController::ajouter');
 $routes->get('/autresOperateurs/supprimer/(:num)', 'AutresOperateursController::supprimer/$1');
-
+$routes->get('/client/transfertMultiple', 'TransactionMultipleController::transfertMultiple');
+$routes->post('/transfertMultiple/valide', 'TransactionMultipleController::valideTransfert');
 
 //Noah
 $routes->get('/', 'AuthController::login');

@@ -1,7 +1,7 @@
 <?php
 $error = session()->getFlashdata('error');
 $success = session()->getFlashdata('success');
-$soldeValue = $clientSolde ?? 0;
+$soldeValue = $soldeValue ?? 0;
 
 ob_start();
 ?>
