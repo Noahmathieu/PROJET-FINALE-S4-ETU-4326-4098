@@ -18,7 +18,7 @@
 
 
 #### Coté client
-- voir le solde : (Noah)
+ voir le solde : (Noah)
     - page pour voir solde actuel(Noah)
 - opérations :(Noah)
     - page pour effectuer opérations: (depot retrait,transfert)(Noah)
