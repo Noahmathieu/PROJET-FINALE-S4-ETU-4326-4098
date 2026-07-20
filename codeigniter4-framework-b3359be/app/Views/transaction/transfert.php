@@ -1,28 +1,48 @@
 <?php
 $error = session()->getFlashdata('error');
-if ($error) {
-    echo '<p style="color: red;">' . $error . '</p>';
-}
-if ($success = session()->getFlashdata('success')) {
-    echo '<p style="color: #00f620;">' . $success . '</p>';
-}
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Bienvenue a Vous</h1>
-    <h3>Transfert</h3>
-    <form action="<?= base_url('transfert/valide'); ?>" method="post" enctype="multipart/form-data">
-        <p>Entrez le numero du destinataire: <input type="tel" name="destinataire" id="destinataire" required></p>
-        <p>Entrez le montant à transférer: <input type="number" name="montant" id="montant" required></p>
-        <input type="submit" value="Transferer">
-    </form>
+$success = session()->getFlashdata('success');
 
-</body>
-</html>
+ob_start();
+?>
+<?php if ($error): ?>
+    <div class="flash-message error" role="alert"><?= esc($error) ?></div>
+<?php endif; ?>
+
+<?php if ($success): ?>
+    <div class="flash-message success" role="status"><?= esc($success) ?></div>
+<?php endif; ?>
+
+<section class="client-form-card">
+    <div class="panel-head">
+        <div>
+            <h3>Transfert</h3>
+            <p>Envoyez de l'argent vers un numero valide autorise.</p>
+        </div>
+    </div>
+
+    <form class="form-grid" action="<?= base_url('transfert/valide'); ?>" method="post">
+        <div class="form-group">
+            <label for="destinataire">Numero du destinataire</label>
+            <input type="tel" name="destinataire" id="destinataire" inputmode="tel" required>
+        </div>
+
+        <div class="form-group">
+            <label for="montant">Montant a transferer</label>
+            <input type="number" name="montant" id="montant" min="1" step="0.01" required>
+        </div>
+
+        <button class="primary-button" type="submit">Transferer</button>
+    </form>
+</section>
+<?php
+$content = ob_get_clean();
+
+echo view('client/_layout', [
+    'title' => 'Transfert',
+    'pageHeading' => 'Transfert',
+    'pageDescription' => 'Transmettez des fonds avec controle du numero destinataire.',
+    'activeMenu' => 'transfert',
+    'clientName' => $clientName ?? 'Client',
+    'soldeValue' => $soldeValue ?? 0,
+    'content' => $content,
+]);

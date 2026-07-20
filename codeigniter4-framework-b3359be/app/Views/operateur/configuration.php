@@ -1,29 +1,66 @@
 <?php
 $prefixe = $prefixe ?? [];
+
+ob_start();
 ?>
-<!DOCTYPE html>
-<html lang="en">
+<div class="dual-grid">
+    <section class="panel-card">
+        <div class="panel-head">
+            <div>
+                <h3>Ajouter un nouveau prefixe</h3>
+                <p>Ces prefixes sont utilises pour valider les numeros clients autorises.</p>
+            </div>
+        </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+        <form class="form-grid" action="<?= base_url('config/ajouter') ?>" method="post">
+            <div class="form-group">
+                <label for="prefixe">Prefixe</label>
+                <input type="text" name="prefixe" id="prefixe" placeholder="Ex: 032" maxlength="10" required>
+            </div>
 
-<body>
-    <h1>Configuration Form</h1>
+            <button class="primary-button" type="submit">Ajouter le prefixe</button>
+        </form>
+    </section>
 
-    <form action="<?= base_url('config/ajouter') ?>" method="post">
-        <input type="text" name="prefixe" placeholder="Enter prefixe">
-        <button type="submit">Ajouter</button>
-    </form>
+    <section class="panel-card">
+        <div class="section-head">
+            <div>
+                <h3>Prefixes enregistres</h3>
+                <p>Filtre rapide et gestion directe des valeurs existantes.</p>
+            </div>
+        </div>
 
-    <?php foreach ($prefixe as $config): ?>
-    <ul>
-        <li>Prefixe: <?= $config['prefixe'] ?></li>
-        <a href="<?= base_url('config/supprimer/'. $config['id']) ?>">Supprimer</a>
-    </ul>
-    <?php endforeach; ?>
-</body>
+        <div class="search-row">
+            <input class="search-field" type="search" data-grid-search="#prefixList" placeholder="Rechercher un prefixe">
+        </div>
 
-</html>
+        <div id="prefixList" class="item-list">
+            <?php if (empty($prefixe)): ?>
+                <div class="empty-state">
+                    <strong>Aucun prefixe n'est disponible.</strong>
+                    <span>Ajoutez le premier prefixe pour activer la validation des numeros autorises.</span>
+                </div>
+            <?php endif; ?>
+
+            <?php foreach ($prefixe as $config): ?>
+                <article class="item-card" data-search-item>
+                    <div>
+                        <span class="mini-pill">Prefixe autorise</span>
+                        <strong><?= esc($config['prefixe']) ?></strong>
+                    </div>
+                    <a class="danger-button" href="<?= base_url('config/supprimer/' . $config['id']) ?>" data-delete-confirm="Supprimer le prefixe <?= esc($config['prefixe']) ?> ?">Supprimer</a>
+                </article>
+            <?php endforeach; ?>
+        </div>
+    </section>
+</div>
+<?php
+$content = ob_get_clean();
+
+echo view('operateur/_layout', [
+    'title' => 'Configuration des prefixes',
+    'pageHeading' => 'Configuration des prefixes',
+    'pageDescription' => 'Ajoutez et retirez les prefixes autorises pour les numeros clients.',
+    'activeMenu' => 'configuration',
+    'content' => $content,
+]);

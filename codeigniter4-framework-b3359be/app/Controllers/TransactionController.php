@@ -4,11 +4,16 @@ namespace App\Controllers;
 
 use App\Models\ClientModel;
 use App\Models\ConfigurationModel;
-use App\Models\FraisModel;
 use App\Models\HistoriqueModel;
+use App\Models\FraisModel;
 
 class TransactionController extends BaseController
 {
+    private $clientModel;
+    private $configurationModel;
+    private $historiqueModel;
+    private $fraisModel;
+
     public function __construct()
     {
         $this->clientModel = new ClientModel();
@@ -16,14 +21,40 @@ class TransactionController extends BaseController
         $this->historiqueModel = new HistoriqueModel();
         $this->fraisModel = new FraisModel();
     }
+    private function getCurrentClient(): ?array
+    {
+        $clientId = session()->get('client_id');
+
+        if (!$clientId) {
+            return null;
+        }
+
+        return $this->clientModel->getClientById($clientId);
+    }
+
     public function retrait(){
-        return view('transaction/retrait');
+        $client = $this->getCurrentClient();
+
+        return view('transaction/retrait', [
+            'soldeValue' => $client['solde'] ?? 0,
+            'clientName' => $client['numero'] ?? 'Client',
+        ]);
     }
     public function depot(){
-        return view('transaction/depot');
+        $client = $this->getCurrentClient();
+
+        return view('transaction/depot', [
+            'soldeValue' => $client['solde'] ?? 0,
+            'clientName' => $client['numero'] ?? 'Client',
+        ]);
     }
     public function transfer(){
-        return view('transaction/transfert');
+        $client = $this->getCurrentClient();
+
+        return view('transaction/transfert', [
+            'soldeValue' => $client['solde'] ?? 0,
+            'clientName' => $client['numero'] ?? 'Client',
+        ]);
     }
     public function valideDepot(){
         $montant = $this->request->getPost("montant");
@@ -128,6 +159,9 @@ class TransactionController extends BaseController
         $session = session();
         $id = $session->get("client_id");
         $transactions = $this->historiqueModel->getHistoriqueWithType($id);
-        return view('client/historique', ['transactions' => $transactions]);
+        $client = $this->getCurrentClient();
+        return view('client/historique', ['transactions' => $transactions,
+        'soldeValue' => $client['solde'] ?? 0,
+        'clientName' => $client['numero'] ?? 'Client',]);
     }
 }

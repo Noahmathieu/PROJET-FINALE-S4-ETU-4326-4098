@@ -1,24 +1,35 @@
 <?php
-$beneficeRetrait = $retrait['frais'] ?? 0;
-$beneficeTransfert = $transfert['frais'] ?? 0;
+ob_start();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <h1>Bienvenue a Vous</h1>
-    <h2>Dashboard</h2>
-    <ul>
-        <li><a href="<?= base_url('config'); ?>">Configuration</a></li>
-        <li><a href="<?= base_url('frais'); ?>">Frais</a></li>
-        <li><a href="<?= base_url('typeOperation'); ?>">Type d'Opération</a></li>
-    </ul>
-<h2>Benefice Total: <?= $benefice ?></h2>
-<h2>Benefice Retrait: <?= $retrait ?></h2>
-<h2>Benefice Transfert: <?= $transfert ?></h2>
-</body>
-</html>
+<div class="stack-grid">
+    <section class="panel-card">
+        <div class="panel-head">
+            <div>
+                <h3>Acces rapides</h3>
+                <p>Les entrees principales pour gerer les regles du reseau et superviser l'activite.</p>
+            </div>
+        </div>
+
+        <div class="inline-actions">
+            <a class="action-chip" href="<?= base_url('config'); ?>">Configuration</a>
+            <a class="action-chip" href="<?= base_url('frais'); ?>">Frais</a>
+            <a class="action-chip" href="<?= base_url('typeOperation'); ?>">Types d'operation</a>
+            <a class="action-chip" href="<?= base_url('situationClient'); ?>">Comptes clients</a>
+        </div>
+    </section>
+</div>
+<?php
+$content = ob_get_clean();
+
+echo view('operateur/_layout', [
+    'title' => 'Dashboard operateur',
+    'pageHeading' => 'Dashboard operateur',
+    'pageDescription' => "Vue d'ensemble des gains et acces rapides aux modules de configuration.",
+    'activeMenu' => 'dashboard',
+    'summaryCards' => [
+        ['label' => 'Benefice total', 'value' => $benefice ?? 0, 'note' => 'Somme des frais collectes', 'tone' => 'tone-blue'],
+        ['label' => 'Retraits', 'value' => $retrait ?? 0, 'note' => 'Frais lies aux retraits', 'tone' => 'tone-indigo'],
+        ['label' => 'Transferts', 'value' => $transfert ?? 0, 'note' => 'Frais lies aux transferts', 'tone' => 'tone-navy'],
+    ],
+    'content' => $content,
+]);

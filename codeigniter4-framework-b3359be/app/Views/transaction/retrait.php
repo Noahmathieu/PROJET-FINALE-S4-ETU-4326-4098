@@ -1,27 +1,43 @@
 <?php
 $error = session()->getFlashdata('error');
-if ($error) {
-    echo '<p style="color: red;">' . $error . '</p>';
-}
-if ($success = session()->getFlashdata('success')) {
-    echo '<p style="color: #00f620;">' . $success . '</p>';
-}
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Bienvenue a Vous</h1>
-    <h2>Retrait</h2>
-    <form action="<?= base_url('transfert/retrait/valide'); ?>" method="post" enctype="multipart/form-data">
-        <p>Entrez le montant à retirer: <input type="number" name="montant" id="montant" required></p>
-        <input type="submit" value="Retirer">
-    </form>
+$success = session()->getFlashdata('success');
 
-</body>
-</html>
+ob_start();
+?>
+<?php if ($error): ?>
+    <div class="flash-message error" role="alert"><?= esc($error) ?></div>
+<?php endif; ?>
+
+<?php if ($success): ?>
+    <div class="flash-message success" role="status"><?= esc($success) ?></div>
+<?php endif; ?>
+
+<section class="client-form-card">
+    <div class="panel-head">
+        <div>
+            <h3>Retrait</h3>
+            <p>Retirez du solde tout en gardant la lisibilite des frais.</p>
+        </div>
+    </div>
+
+    <form class="form-grid" action="<?= base_url('transfert/retrait/valide'); ?>" method="post">
+        <div class="form-group">
+            <label for="montant">Montant a retirer</label>
+            <input type="number" name="montant" id="montant" min="1" step="0.01" required>
+        </div>
+
+        <button class="primary-button" type="submit">Retirer</button>
+    </form>
+</section>
+<?php
+$content = ob_get_clean();
+
+echo view('client/_layout', [
+    'title' => 'Retrait',
+    'pageHeading' => 'Retrait',
+    'pageDescription' => 'Controlez le montant et les frais avant validation.',
+    'activeMenu' => 'retrait',
+    'clientName' => $clientName ?? 'Client',
+    'soldeValue' => $soldeValue ?? 0,
+    'content' => $content,
+]);

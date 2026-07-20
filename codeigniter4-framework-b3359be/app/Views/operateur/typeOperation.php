@@ -1,107 +1,72 @@
-<?php 
-$typeOperations = $typeOperations ?? []; 
+<?php
+$typeOperations = $typeOperations ?? [];
+
+ob_start();
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Type d'Opération</title>
-</head>
-<body>
-    <h1>CRUD Type d'Opération</h1>
-    
-    <button type="button" onclick="toggleAddForm()">Ajouter un nouveau type d'opération</button>
-    <br><br>
-
-    <form id="addTypeOperationForm" onsubmit="addTypeOperation(event)" style="display: none; margin-bottom: 20px;">
-        <input type="text" name="nomType" placeholder="Nom du type d'opération" required>
-        <button type="submit">Enregistrer</button>
-        <button type="button" onclick="toggleAddForm()">Annuler</button>
-    </form>
-
-    <div id="typeOperationsList">
-        <?php foreach ($typeOperations as $typeOperation): ?>
-            <div id="ligne/<?= $typeOperation['id'] ?>" style="margin-bottom: 10px;">
-                <input type="text" name="nomType" value="<?= htmlspecialchars($typeOperation['nomType']) ?>">
-                <button type="button" onclick="editTypeOperation(<?= $typeOperation['id'] ?>)">Modifier</button>
-                <button type="button" onclick="deleteTypeOperation(<?= $typeOperation['id'] ?>)">Supprimer</button>
+<div class="dual-grid">
+    <section class="panel-card">
+        <div class="panel-head">
+            <div>
+                <h3>Ajouter un type d'operation</h3>
+                <p>Definissez les categories qui seront ensuite reliees aux frais.</p>
             </div>
-        <?php endforeach; ?>
-    </div>
+        </div>
 
-    <script>
-        function toggleAddForm() {
-            const container = document.getElementById('addTypeOperationForm');
-            if (container.style.display === 'none' || container.style.display === '') {
-                container.style.display = 'block';
-            } else {
-                container.style.display = 'none';
-            }
-        }
+        <form class="form-grid" action="<?= base_url('typeOperation/ajouter') ?>" method="post">
+            <div class="form-group">
+                <label for="nomType">Nom du type</label>
+                <input type="text" name="nomType" id="nomType" placeholder="Ex: Transfert" required>
+            </div>
 
-        function addTypeOperation(event) {
-            event.preventDefault();
+            <button class="primary-button" type="submit">Enregistrer le type</button>
+        </form>
+    </section>
 
-            const form = document.getElementById('addTypeOperationForm');
-            const formData = new FormData(form);
+    <section class="panel-card">
+        <div class="section-head">
+            <div>
+                <h3>Types disponibles</h3>
+                <p>Chaque type peut etre modifie ou supprime directement ici.</p>
+            </div>
+        </div>
 
-            fetch('<?= base_url('typeOperation/ajouter') ?>', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert(data.message);
-                        form.reset();
-                        toggleAddForm(); 
-                        location.reload(); 
-                    } else {
-                        alert('Erreur lors de l\'ajout');
-                    }
-                })
-                .catch(error => console.error('Erreur :', error));
-        }
+        <div class="search-row">
+            <input class="search-field" type="search" data-grid-search="#typeOperationList" placeholder="Rechercher un type d'operation">
+        </div>
 
-        function editTypeOperation(id) {
-            const row = document.getElementById(`ligne/${id}`);
+        <div id="typeOperationList" class="editable-list">
+            <?php if (empty($typeOperations)): ?>
+                <div class="empty-state">
+                    <strong>Aucun type d'operation n'est defini.</strong>
+                    <span>Ajoutez les categories de base pour structurer les frais et les historiques.</span>
+                </div>
+            <?php endif; ?>
 
-            const formData = new FormData();
-            formData.append('nomType', row.querySelector('input[name="nomType"]').value);
+            <?php foreach ($typeOperations as $typeOperation): ?>
+                <article class="editable-card" data-search-item>
+                    <form class="form-grid" action="<?= base_url('typeOperation/modifier/' . $typeOperation['id']) ?>" method="post">
+                        <div class="form-group">
+                            <label for="type-<?= $typeOperation['id'] ?>">Nom du type</label>
+                            <input type="text" id="type-<?= $typeOperation['id'] ?>" name="nomType" value="<?= esc($typeOperation['nomType']) ?>" required>
+                        </div>
 
-            fetch('<?= base_url('typeOperation/modifier/') ?>' + id, {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert(data.message);
-                    } else {
-                        alert('Erreur lors de la modification');
-                    }
-                })
-                .catch(error => console.error('Erreur :', error));
-        }
+                        <div class="inline-actions">
+                            <button class="secondary-button" type="submit">Modifier</button>
+                            <a class="danger-button" href="<?= base_url('typeOperation/supprimer/' . $typeOperation['id']) ?>" data-delete-confirm="Supprimer le type d'operation <?= esc($typeOperation['nomType']) ?> ?">Supprimer</a>
+                        </div>
+                    </form>
+                </article>
+            <?php endforeach; ?>
+        </div>
+    </section>
+</div>
+<?php
+$content = ob_get_clean();
 
-        function deleteTypeOperation(id) {
-            if (confirm('Êtes-vous sûr de vouloir supprimer ce type d\'opération ?')) {
-                fetch('<?= base_url('typeOperation/supprimer/') ?>' + id, {
-                        method: 'GET'
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            alert(data.message);
-                            document.getElementById(`ligne/${id}`).remove();
-                        } else {
-                            alert('Erreur lors de la suppression');
-                        }
-                    })
-                    .catch(error => console.error('Erreur :', error));
-            }
-        }
-   </script>
-</body>
-</html>
+echo view('operateur/_layout', [
+    'title' => "Gestion des types d'operation",
+    'pageHeading' => "Gestion des types d'operation",
+    'pageDescription' => 'Structurez les operations pour que les frais et historiques restent lisibles.',
+    'activeMenu' => 'typeOperation',
+    'content' => $content,
+]);

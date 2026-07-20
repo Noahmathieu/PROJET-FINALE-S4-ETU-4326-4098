@@ -1,155 +1,116 @@
 <?php
 $frais = $frais ?? [];
 $typeOperations = $typeOperations ?? [];
+
+ob_start();
 ?>
-<!DOCTYPE html>
-<html lang="fr">
+<div class="stack-grid">
+    <section class="panel-card">
+        <div class="panel-head">
+            <div>
+                <h3>Ajouter un frais</h3>
+                <p>Chaque intervalle est associe a un type d'operation et a sa valeur de commission.</p>
+            </div>
+        </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion des Frais</title>
-</head>
+        <form class="form-grid columns-3" action="<?= base_url('frais/ajouter') ?>" method="post">
+            <div class="form-group">
+                <label for="frais-type">Type d'operation</label>
+                <select name="id_type_operation" id="frais-type" required>
+                    <option value="">Selectionner</option>
+                    <?php foreach ($typeOperations as $typeOperation): ?>
+                        <option value="<?= $typeOperation['id'] ?>"><?= esc($typeOperation['nomType']) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-<body>
-    <div id="add-form-container" class="add-form-container" style="display: none; margin-bottom: 15px;">
-        <h3>Ajouter un nouveau frais</h3>
-        <form id="addFraisForm" onsubmit="addFrais(event)">
-            <select name="id_type_operation" required>
-                <option value="">Sélectionner un type d'opération</option>
-                <?php foreach ($typeOperations as $typeOperation): ?>
-                    <option value="<?= $typeOperation['id'] ?>"><?= htmlspecialchars($typeOperation['nomType']) ?></option>
-                <?php endforeach; ?>
-            </select>
-            <input type="number" step="0.01" name="montant_Min" placeholder="Montant Min" required>
-            <input type="number" step="0.01" name="montant_Max" placeholder="Montant Max" required>
-            <input type="number" step="0.01" name="valeur" placeholder="Valeur" required>
-            <button type="submit">Enregistrer</button>
-            <button type="button" onclick="toggleAddForm()">Annuler</button>
+            <div class="form-group">
+                <label for="frais-min">Montant minimum</label>
+                <input type="number" step="0.01" name="montant_Min" id="frais-min" placeholder="0.00" required>
+            </div>
+
+            <div class="form-group">
+                <label for="frais-max">Montant maximum</label>
+                <input type="number" step="0.01" name="montant_Max" id="frais-max" placeholder="0.00" required>
+            </div>
+
+            <div class="form-group">
+                <label for="frais-valeur">Valeur du frais</label>
+                <input type="number" step="0.01" name="valeur" id="frais-valeur" placeholder="0.00" required>
+            </div>
+
+            <div class="inline-actions">
+                <button class="primary-button" type="submit">Ajouter le frais</button>
+            </div>
         </form>
-    </div>
+    </section>
 
-    <button type="button" onclick="toggleAddForm()">Ajouter</button>
+    <section class="panel-card">
+        <div class="section-head">
+            <div>
+                <h3>Liste des frais</h3>
+                <p>Modifiez les plages et les montants sans quitter la page.</p>
+            </div>
+        </div>
 
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Type d'Opération</th>
-                <th>Montant Min</th>
-                <th>Montant Max</th>
-                <th>Valeur</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody id="fraisTableBody">
+        <div class="search-row">
+            <input class="search-field" type="search" data-grid-search="#fraisList" placeholder="Filtrer par type ou plage de montant">
+        </div>
+
+        <div id="fraisList" class="editable-list">
+            <?php if (empty($frais)): ?>
+                <div class="empty-state">
+                    <strong>Aucun frais n'est defini.</strong>
+                    <span>Ajoutez les frais par intervalle pour chaque type d'operation.</span>
+                </div>
+            <?php endif; ?>
+
             <?php foreach ($frais as $item): ?>
-                <tr id="ligne/<?= $item['id'] ?>">
-                    <td>
-                        <select name="id_type_operation">
-                            <?php foreach ($typeOperations as $typeOperation): ?>
-                                <option value="<?= $typeOperation['id'] ?>" <?= $typeOperation['id'] == $item['id_type_operation'] ? 'selected' : '' ?>>
-                                    <?= htmlspecialchars($typeOperation['nomType']) ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </td>
-                    <td>
-                        <input type="number" step="0.01" name="montant_Min" value="<?= htmlspecialchars($item['montant_Min']) ?>">
-                    </td>
-                    <td>
-                        <input type="number" step="0.01" name="montant_Max" value="<?= htmlspecialchars($item['montant_Max']) ?>">
-                    </td>
-                    <td>
-                        <input type="number" step="0.01" name="valeur" value="<?= htmlspecialchars($item['valeur']) ?>">
-                    </td>
-                    <td>
-                        <button type="button" onclick="editFrais(<?= $item['id'] ?>)">Modifier</button>
-                        <button type="button" onclick="deleteFrais(<?= $item['id'] ?>)">Supprimer</button>
-                    </td>
-                </tr>
+                <article class="editable-card" data-search-item>
+                    <form class="form-grid columns-3" action="<?= base_url('frais/modifier/' . $item['id']) ?>" method="post">
+                        <div class="form-group">
+                            <label for="frais-type-<?= $item['id'] ?>">Type d'operation</label>
+                            <select name="id_type_operation" id="frais-type-<?= $item['id'] ?>" required>
+                                <?php foreach ($typeOperations as $typeOperation): ?>
+                                    <option value="<?= $typeOperation['id'] ?>" <?= (int) $typeOperation['id'] === (int) $item['id_type_operation'] ? 'selected' : '' ?>>
+                                        <?= esc($typeOperation['nomType']) ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="frais-min-<?= $item['id'] ?>">Montant minimum</label>
+                            <input type="number" step="0.01" name="montant_Min" id="frais-min-<?= $item['id'] ?>" value="<?= esc($item['montant_Min']) ?>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="frais-max-<?= $item['id'] ?>">Montant maximum</label>
+                            <input type="number" step="0.01" name="montant_Max" id="frais-max-<?= $item['id'] ?>" value="<?= esc($item['montant_Max']) ?>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="frais-valeur-<?= $item['id'] ?>">Valeur</label>
+                            <input type="number" step="0.01" name="valeur" id="frais-valeur-<?= $item['id'] ?>" value="<?= esc($item['valeur']) ?>" required>
+                        </div>
+
+                        <div class="inline-actions">
+                            <button class="secondary-button" type="submit">Modifier</button>
+                            <a class="danger-button" href="<?= base_url('frais/supprimer/' . $item['id']) ?>" data-delete-confirm="Supprimer ce frais ?">Supprimer</a>
+                        </div>
+                    </form>
+                </article>
             <?php endforeach; ?>
-        </tbody>
-    </table>
+        </div>
+    </section>
+</div>
+<?php
+$content = ob_get_clean();
 
-
-    <script>
-        function toggleAddForm() {
-            const container = document.getElementById('add-form-container');
-            if (container.style.display === 'none' || container.style.display === '') {
-                container.style.display = 'block';
-            } else {
-                container.style.display = 'none';
-            }
-        }
-
-        function addFrais(event) {
-            event.preventDefault();
-
-            const form = document.getElementById('addFraisForm');
-            const formData = new FormData(form);
-
-            fetch('<?= base_url('frais/ajouter') ?>', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert(data.message);
-                        form.reset();
-                        toggleAddForm(); 
-                        location.reload(); 
-                    } else {
-                        alert('Erreur lors de l\'ajout');
-                    }
-                })
-                .catch(error => console.error('Erreur :', error));
-        }
-
-        function editFrais(id) {
-            const row = document.getElementById(`ligne/${id}`);
-
-            const formData = new FormData();
-            formData.append('id', id);
-            formData.append('id_type_operation', row.querySelector('select[name="id_type_operation"]').value);
-            formData.append('montant_Min', row.querySelector('input[name="montant_Min"]').value);
-            formData.append('montant_Max', row.querySelector('input[name="montant_Max"]').value);
-            formData.append('valeur', row.querySelector('input[name="valeur"]').value);
-
-            fetch('<?= base_url('frais/modifier/') ?>' + id, {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert(data.message);
-                    } else {
-                        alert('Erreur lors de la modification');
-                    }
-                })
-                .catch(error => console.error('Erreur :', error));
-        }
-
-        function deleteFrais(id) {
-            if (confirm('Êtes-vous sûr de vouloir supprimer ce frais ?')) {
-                fetch('<?= base_url('frais/supprimer/') ?>' + id, {
-                        method: 'GET'
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            alert(data.message);
-                            document.getElementById(`ligne/${id}`).remove();
-                        } else {
-                            alert('Erreur lors de la suppression');
-                        }
-                    })
-                    .catch(error => console.error('Erreur :', error));
-            }
-        }
-    </script>
-
-</body>
-
-</html>
+echo view('operateur/_layout', [
+    'title' => 'Gestion des frais',
+    'pageHeading' => 'Gestion des frais',
+    'pageDescription' => 'Ajoutez, modifiez et supprimez les commissions appliquees aux operations.',
+    'activeMenu' => 'frais',
+    'content' => $content,
+]);
