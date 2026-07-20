@@ -14,6 +14,14 @@ class AuthController extends BaseController
     }
     public function login()
     {
+        if ($this->session->get('client_id')) {
+            $clientId = $this->session->get('client_id');
+            if ($clientId === '1234567890') {
+                return redirect()->to('/operator/home');
+            } else {
+                return redirect()->to('/client/home');
+            }
+        }
         return view('auth/login');
     }
     public function checkLogin()

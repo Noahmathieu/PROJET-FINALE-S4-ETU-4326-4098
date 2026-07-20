@@ -14,4 +14,9 @@ class ConfigurationModel extends Model
         'prefixe',
     ];
 
+    public function checkMyOperator($numero)
+    {
+        $prefixe = substr($numero, 0, 3);
+        return $this->where('prefixe', $prefixe)->first();
+    }
 }
