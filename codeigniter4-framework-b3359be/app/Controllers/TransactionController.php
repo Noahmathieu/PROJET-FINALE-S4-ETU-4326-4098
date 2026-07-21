@@ -183,6 +183,8 @@ class TransactionController extends BaseController
         return view('transaction/transfert', [
             'soldeValue' => $client['solde'] ?? 0,
             'clientName' => $client['numero'] ?? 'Client',
+            // Les frais de retrait ne concernent que les préfixes de notre opérateur.
+            'prefixesOperateur' => $this->configurationModel->findAll(),
         ]);
     }
     public function valideDepot(){
@@ -263,8 +265,7 @@ class TransactionController extends BaseController
         if ($calcul['est_meme_operateur']) {
             $this->clientModel->updateSoldeByNumero($calcul['destinataire'], $calcul['montant_recu']);
         }
-        $somme = $calcul['frais_transfert'] + $calcul['frais_retrait'] + $calcul['commission'];
-        $this->clientModel->updateSoldeById($id, -$somme);
+
         $this->historiqueModel->insert([
             'client_id' => session()->get('client_id'),
             'type_operation_id' => 3,
