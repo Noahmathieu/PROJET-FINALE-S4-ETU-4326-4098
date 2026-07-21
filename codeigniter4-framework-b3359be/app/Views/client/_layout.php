@@ -15,6 +15,7 @@ $menuItems = [
     ['key' => 'transfert', 'label' => 'Transfert', 'href' => base_url('client/transfert')],
     ['key' => 'transfertMultiple', 'label' => 'Transfert multiple', 'href' => base_url('client/transfertMultiple')],
     ['key' => 'historique', 'label' => 'Historique', 'href' => base_url('client/historique')],
+    ['key' => 'epargne', 'label' => 'Epargne', 'href' => base_url('client/epargne')],
 ];
 ?>
 <!DOCTYPE html>

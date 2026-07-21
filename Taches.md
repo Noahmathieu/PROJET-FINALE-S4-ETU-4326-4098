@@ -52,5 +52,7 @@
 ### Aléa 1
 promotion pourcentage  sur les frais de transfert meme operateur
   - ajouter promotion dans base
-  
 
+
+### alea 
+Epargne: choix client epargne pour chaque transfert

@@ -9,6 +9,7 @@ use App\Models\FraisModel;
 use App\Models\CommissionModel;
 use App\Models\PromotionModel;
 use App\Models\AutresOperateursModel;
+use App\Models\EpargneModel;
 
 
 class TransactionController extends BaseController
@@ -20,6 +21,7 @@ class TransactionController extends BaseController
     private $commissionModel;
     private $autresOperateursModel;
     private $promotionModel;
+    private $epargneModel;
 
     public function __construct()
     {
@@ -30,6 +32,7 @@ class TransactionController extends BaseController
         $this->commissionModel = new CommissionModel();
         $this->autresOperateursModel = new AutresOperateursModel();
         $this->promotionModel = new PromotionModel();
+        $this->epargneModel = new EpargneModel();
     }
     private function getCurrentClient(): ?array
     {
@@ -105,6 +108,9 @@ class TransactionController extends BaseController
         $prefixesOperateur = $this->configurationModel->findAll();
         $prefixesAutresOperateurs = $this->autresOperateursModel->findAll();
         $regexNumeroAutorise = $this->construireRegexNumeroAutorise($prefixesOperateur, $prefixesAutresOperateurs);
+        $dest = $this->clientModel->findByNumero($destinataire);
+        $idDest=$dest['id'];
+        $epargne = $this->epargneModel->findByIdClient($idDest);
 
         if ($regexNumeroAutorise === null || !preg_match($regexNumeroAutorise, trim($destinataire))) {
             return null;
@@ -116,6 +122,8 @@ class TransactionController extends BaseController
         $autreOperateur = $this->trouverAutreOperateur($prefixe);
         $estAutreOperateur = $autreOperateur !== null;
 
+        $tauxepargne = $epargne['epargne'];
+
         if (!$estMemeOperateur && !$estAutreOperateur) {
             return null;
         }
@@ -124,7 +132,7 @@ class TransactionController extends BaseController
         $fraisRetrait = 0.0;
         $commission = 0.0;
         $promotion = 1;
-        $montantRecu = $montant;
+        $montantRecu = $montant * $tauxepargne;
 
         if ($estMemeOperateur) {
             $frais = $this->fraisModel->getFraisTransfertEtRetrait($montant);

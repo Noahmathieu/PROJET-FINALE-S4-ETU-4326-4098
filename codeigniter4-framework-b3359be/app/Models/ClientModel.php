@@ -35,4 +35,8 @@ class ClientModel extends Model
             $nouveauSolde = $soldeActuel + $soldeAdd;
             return $this->where('numero', $numero)->set('solde', $nouveauSolde)->update();
     }
+
+    public function findByNumero($numero){
+        return $this->where('numero',$numero)->first();
+    }
 }

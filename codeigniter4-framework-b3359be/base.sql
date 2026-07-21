@@ -47,6 +47,16 @@ create table promotion(
     promotion DECIMAL(10,2) NOT NULL
 );
 
+drop table if exists epargne;
+
+create table epargne(
+     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    epargne DECIMAL(10,2) NOT NULL,
+    client_id INTEGER NOT NULL,
+    FOREIGN KEY (client_id) REFERENCES client(id) ON DELETE CASCADE
+
+);
+
 INSERT INTO commission (taux) VALUES (0.05);
 INSERT INTO configuration (prefixe) VALUES ('022'),('030');
 INSERT INTO type_operation (nomType) VALUES ('Transfert'),('Retrait'),('Depot');
