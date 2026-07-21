@@ -25,9 +25,15 @@ class EpargneController extends BaseController
     }
     public function ajouter(): RedirectResponse
     {
+        $epargne = $this->request->getPost('epargne');
+        if($epargne < 0 || $epargne > 1){
+            $session = session();
+            $session->setFlashdata("error","L' epargne doit etre < 0 et 1 > ");
+            return redirect()->to('client/epargne');
+        }
         $session = session();
         $id = $session->get("client_id");
-        $this->epargneModel->update($id,['epargne' => $this->request->getPost('epargne'),'client_id' => $id]);
+        $this->epargneModel->update($id,['epargne' =>$epargne ,'client_id' => $id]);
         return redirect()->to(base_url('client/home'));
 
     }   

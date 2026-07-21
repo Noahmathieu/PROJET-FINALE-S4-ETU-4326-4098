@@ -42,3 +42,4 @@ $routes->get('/client/historique', 'TransactionController::historique');
 $routes->get('/operator/home', 'OperatorController::index');
 $routes->get('/client/epargne','EpargneController::form');
 $routes->post('/client/epargne/validate','EpargneController::ajouter');
+$routes->get('/operator/promotion', 'PromotionController::form');

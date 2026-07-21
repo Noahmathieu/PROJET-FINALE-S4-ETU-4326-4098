@@ -132,7 +132,7 @@ class TransactionController extends BaseController
         $fraisRetrait = 0.0;
         $commission = 0.0;
         $promotion = 1;
-        $montantRecu = $montant * $tauxepargne;
+        $montantRecu = $montant - ($montant * $tauxepargne);
 
         if ($estMemeOperateur) {
             $frais = $this->fraisModel->getFraisTransfertEtRetrait($montant);
