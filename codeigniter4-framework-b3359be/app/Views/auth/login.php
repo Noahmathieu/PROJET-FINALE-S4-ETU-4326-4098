@@ -54,7 +54,7 @@ $logoPath = base_url(rawurlencode('Design sans titre.png'));
                 <form class="auth-form" action="<?= base_url('/checkLogin'); ?>" method="post">
                     <div class="form-group">
                         <label for="numero">Numero de telephone</label>
-                        <input type="tel" name="numero" id="numero" inputmode="tel" autocomplete="tel" placeholder="Ex: 0321234567" required>
+                        <input type="tel" name="numero" id="numero" inputmode="tel" autocomplete="tel" placeholder="Ex: 0221234567" required>
                     </div>
 
                     <button class="primary-button auth-submit" type="submit">Se connecter</button>
