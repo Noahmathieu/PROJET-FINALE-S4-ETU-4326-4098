@@ -22,7 +22,7 @@ class AutresOperateursController extends BaseController
     }
     public function ajouter(): RedirectResponse
     {
-        $this->autresOperateursModel->save(['prefixe' => $this->request->getPost('prefixe')]);
+        $this->autresOperateursModel->save(['prefixe' => $this->request->getPost('prefixe'), 'nomOperateur' => $this->request->getPost('nom')]);
         return redirect()->to(base_url('autresOperateurs'));
 
     }

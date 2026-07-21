@@ -16,6 +16,8 @@ ob_start();
             <div class="form-group">
                 <label for="prefixe">Prefixe</label>
                 <input type="text" name="prefixe" id="prefixe" placeholder="Ex: 032" maxlength="10" required>
+                <label for="nom">Nom de l'operateur</label>
+                <input type="text" name="nom" id="nom" placeholder="Ex: Orange" maxlength="100" required>
             </div>
 
             <button class="primary-button" type="submit">Ajouter le prefixe</button>
@@ -47,6 +49,8 @@ ob_start();
                     <div>
                         <span class="mini-pill">Prefixe autorise</span>
                         <strong><?= esc($config['prefixe']) ?></strong>
+                        <span class="mini-pill">Nom de l'operateur</span>
+                        <strong><?= esc($config['nomOperateur']) ?></strong>
                     </div>
                     <a class="danger-button" href="<?= base_url('autresOperateurs/supprimer/' . $config['id']) ?>" data-delete-confirm="Supprimer le prefixe <?= esc($config['prefixe']) ?> ?">Supprimer</a>
                 </article>
