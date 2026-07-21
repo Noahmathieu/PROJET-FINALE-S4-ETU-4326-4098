@@ -48,3 +48,9 @@
 (ok)   -Mise en place d'un champ de saisie acceptant plusieurs numéros simultanément(Mitia)
 (ok)   -Logique de calcul : division du montant total saisi par le nombre de destinataires valides(Mitia)
 (ok)   -Contrôle de validité : vérification que tous les numéros saisis appartiennent uniquement à l'opérateur local (l'envoi multiple externe est interdit)(Mitia)
+
+### Aléa 1
+promotion pourcentage  sur les frais de transfert meme operateur
+  - ajouter promotion dans base
+  
+

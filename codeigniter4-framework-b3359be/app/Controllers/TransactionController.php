@@ -7,7 +7,9 @@ use App\Models\ConfigurationModel;
 use App\Models\HistoriqueModel;
 use App\Models\FraisModel;
 use App\Models\CommissionModel;
+use App\Models\PromotionModel;
 use App\Models\AutresOperateursModel;
+
 
 class TransactionController extends BaseController
 {
@@ -17,6 +19,7 @@ class TransactionController extends BaseController
     private $fraisModel;
     private $commissionModel;
     private $autresOperateursModel;
+    private $promotionModel;
 
     public function __construct()
     {
@@ -26,6 +29,7 @@ class TransactionController extends BaseController
         $this->fraisModel = new FraisModel();
         $this->commissionModel = new CommissionModel();
         $this->autresOperateursModel = new AutresOperateursModel();
+        $this->promotionModel = new PromotionModel();
     }
     private function getCurrentClient(): ?array
     {
@@ -119,6 +123,7 @@ class TransactionController extends BaseController
         $fraisTransfert = 0.0;
         $fraisRetrait = 0.0;
         $commission = 0.0;
+        $promotion = 1;
         $montantRecu = $montant;
 
         if ($estMemeOperateur) {
@@ -129,6 +134,10 @@ class TransactionController extends BaseController
             }
 
             $fraisTransfert = $frais['transfert'];
+            $promotionConfig = $this->promotionModel->getPromotion();
+            $tauxPromotion = (float) ($promotionConfig['promotion'] ?? 0);
+            $promotion = $tauxPromotion;
+
 
             if ($inclureFraisRetrait) {
                 $fraisRetrait = $frais['retrait'];
@@ -147,13 +156,14 @@ class TransactionController extends BaseController
             $commissionConfig = $this->commissionModel->getCommission();
             $tauxCommission = (float) ($commissionConfig['taux'] ?? 0);
             $commission = $montant * $tauxCommission;
+            
         }
 
         return [
             'destinataire' => $numeroNormalise,
             'est_meme_operateur' => $estMemeOperateur,
             'autre_operateur' => $autreOperateur,
-            'frais_transfert' => $fraisTransfert,
+            'frais_transfert' => $fraisTransfert*$promotion,
             'frais_retrait' => $fraisRetrait,
             'commission' => $commission,
             'cout_total' => $montant + $fraisTransfert + $fraisRetrait + $commission,
@@ -161,7 +171,8 @@ class TransactionController extends BaseController
         ];
     }
 
-    public function retrait(){
+    public function retrait()
+    {
         $client = $this->getCurrentClient();
 
         return view('transaction/retrait', [
@@ -169,7 +180,8 @@ class TransactionController extends BaseController
             'clientName' => $client['numero'] ?? 'Client',
         ]);
     }
-    public function depot(){
+    public function depot()
+    {
         $client = $this->getCurrentClient();
 
         return view('transaction/depot', [
@@ -177,7 +189,8 @@ class TransactionController extends BaseController
             'clientName' => $client['numero'] ?? 'Client',
         ]);
     }
-    public function transfer(){
+    public function transfer()
+    {
         $client = $this->getCurrentClient();
 
         return view('transaction/transfert', [
@@ -185,7 +198,8 @@ class TransactionController extends BaseController
             'clientName' => $client['numero'] ?? 'Client',
         ]);
     }
-    public function valideDepot(){
+    public function valideDepot()
+    {
         $montant = $this->request->getPost("montant");
 
         $session = session();
@@ -197,7 +211,7 @@ class TransactionController extends BaseController
             'client_id' => session()->get('client_id'),
             'type_operation_id' => 1,
             'montant' => $montant,
-            'frais' =>0,
+            'frais' => 0,
             'date_operation' => date('Y-m-d H:i:s'),
             'destinataire' => null
         ]);
@@ -205,12 +219,13 @@ class TransactionController extends BaseController
         $session->setFlashdata('success', 'Depot effectue avec succes.');
         return redirect()->to('/client/depot');
     }
-    public function valideRetrait(){
+    public function valideRetrait()
+    {
         $montant = $this->request->getPost("montant");
         $session = session();
         $id = $session->get("client_id");
 
-        $frais = $this->fraisModel->getFrais($montant,2);
+        $frais = $this->fraisModel->getFrais($montant, 2);
         $sommeMontant = $montant + $frais['valeur'];
 
         $client = $this->clientModel->find($id);
@@ -218,7 +233,7 @@ class TransactionController extends BaseController
             return redirect()->back()->with('error', 'Solde insuffisant pour couvrir le retrait et les frais.');
         }
 
-        $this->clientModel->updateSoldeById($id,-$sommeMontant);
+        $this->clientModel->updateSoldeById($id, -$sommeMontant);
         $this->historiqueModel->insert([
             'client_id' => session()->get('client_id'),
             'type_operation_id' => 2,
@@ -230,7 +245,8 @@ class TransactionController extends BaseController
         $session->setFlashdata('success', 'Retrait effectue avec succes.');
         return redirect()->to('/client/retrait');
     }
-    public function valideTransfert(){
+    public function valideTransfert()
+    {
 
         $session = session();
         $id = $session->get("client_id");
@@ -278,13 +294,16 @@ class TransactionController extends BaseController
         $session->setFlashdata('success', 'Transfert effectue avec succes.');
         return redirect()->to('/client/transfert');
     }
-    public function historique(){
+    public function historique()
+    {
         $session = session();
         $id = $session->get("client_id");
         $transactions = $this->historiqueModel->getHistoriqueWithType($id);
         $client = $this->getCurrentClient();
-        return view('client/historique', ['transactions' => $transactions,
-        'soldeValue' => $client['solde'] ?? 0,
-        'clientName' => $client['numero'] ?? 'Client',]);
+        return view('client/historique', [
+            'transactions' => $transactions,
+            'soldeValue' => $client['solde'] ?? 0,
+            'clientName' => $client['numero'] ?? 'Client',
+        ]);
     }
 }

@@ -1,0 +1,11 @@
+CRITICAL - 2026-07-21 07:40:44 --> ErrorException: Undefined array key "promotion"
+[Method: GET, Route: operator/promotion]
+in APPPATH/Controllers/PromotionController.php on line 21.
+ 1 APPPATH/Controllers/PromotionController.php(21): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\PromotionController->promotionForm()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 5 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 7 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+ 8 SYSTEMPATH/rewrite.php(44): require_once('/home/fiorenantsoa/Documents/GitHub/PROJET-FINALE-S4-ETU-4326-4098/codeigniter4-framework-b3359be/public/index.php')

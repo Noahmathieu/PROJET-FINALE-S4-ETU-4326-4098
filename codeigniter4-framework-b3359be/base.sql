@@ -41,6 +41,12 @@ CREATE TABLE commission(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     taux DECIMAL(10,2) NOT NULL
 );
+
+create table promotion(
+     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    promotion DECIMAL(10,2) NOT NULL
+);
+
 INSERT INTO commission (taux) VALUES (0.05);
 INSERT INTO configuration (prefixe) VALUES ('022'),('030');
 INSERT INTO type_operation (nomType) VALUES ('Transfert'),('Retrait'),('Depot');
